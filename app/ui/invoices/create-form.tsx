@@ -103,14 +103,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   Pending <ClockIcon className="h-4 w-4" />
                 </label>
               </div>
-              <div id="status-error" aria-live="polite" aria-atomic="true">
-                {state.errors?.customerId &&
-                  state.errors.customerId.map((error: string) => (
-                    <p className="mt-2 text-sm text-red-500" key={error}>
-                      {error}
-                    </p>
-                  ))}
-              </div>
               <div className="flex items-center">
                 <input
                   id="paid"
@@ -127,6 +119,14 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 </label>
               </div>
             </div>
+            <div id="status-error" aria-live="polite" aria-atomic="true">
+                {state.errors?.customerId &&
+                  state.errors.customerId.map((error: string) => (
+                    <p className="mt-2 text-sm text-red-500" key={error}>
+                      {error}
+                    </p>
+                  ))}
+              </div>
           </div>
         </fieldset>
       </div>
