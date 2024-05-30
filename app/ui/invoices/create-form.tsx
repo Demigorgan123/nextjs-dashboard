@@ -10,6 +10,7 @@ import {
 import { Button } from '@/app/ui/button';
 import { createInvoice } from '@/app/lib/action';
 import { useFormState } from 'react-dom';
+import { error } from 'console';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
@@ -128,9 +129,9 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           ))}
           </div>
         </fieldset>
-      </div>
-      <div>
-        {state.message}
+        <div id='form-error' aria-live='polite'>
+          <p className='mt-2 text-sm text-red-500' key={state.message}>{state.message}</p>
+        </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
