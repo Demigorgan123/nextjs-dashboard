@@ -16,7 +16,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
   const [state, dispatch] = useFormState(createInvoice, initialState);
   return (
     <form action={dispatch}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-gray-50 p-4 md:p-6" aria-describedby='form-error'>
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
@@ -128,6 +128,9 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           ))}
           </div>
         </fieldset>
+      </div>
+      <div>
+        {state.message}
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
